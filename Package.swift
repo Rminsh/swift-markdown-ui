@@ -19,7 +19,6 @@ let package = Package(
   ],
   dependencies: [
     .package(url: "https://github.com/gonzalezreal/NetworkImage", from: "6.0.0"),
-    .package(url: "https://github.com/pointfreeco/swift-snapshot-testing", from: "1.10.0"),
   ],
   targets: [
     .target(name: "cmark-gfm"),
@@ -34,9 +33,7 @@ let package = Package(
       name: "MarkdownUITests",
       dependencies: [
         "MarkdownUI",
-        .product(name: "SnapshotTesting", package: "swift-snapshot-testing"),
-      ],
-      exclude: ["__Snapshots__"]
+      ]
     ),
   ]
 )

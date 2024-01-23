@@ -9,19 +9,19 @@ extension View {
   /// - Returns: A view that uses the specified code syntax highlighter for itself and its
   ///            child views.
   public func markdownCodeSyntaxHighlighter(
-    _ codeSyntaxHighlighter: CodeSyntaxHighlighter
+    _ codeSyntaxHighlighter: any CodeSyntaxHighlighter
   ) -> some View {
     self.environment(\.codeSyntaxHighlighter, codeSyntaxHighlighter)
   }
 }
 
 extension EnvironmentValues {
-  var codeSyntaxHighlighter: CodeSyntaxHighlighter {
+  var codeSyntaxHighlighter: any CodeSyntaxHighlighter {
     get { self[CodeSyntaxHighlighterKey.self] }
     set { self[CodeSyntaxHighlighterKey.self] = newValue }
   }
 }
 
 private struct CodeSyntaxHighlighterKey: EnvironmentKey {
-  static let defaultValue: CodeSyntaxHighlighter = .plainText
+  static let defaultValue: any CodeSyntaxHighlighter = .plainText
 }

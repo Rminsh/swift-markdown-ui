@@ -56,9 +56,11 @@ public struct FontProperties: Hashable {
   /// A platform-dependent default font size.
   public static var defaultSize: CGFloat {
     #if os(macOS)
-      return 13
+      return 15
     #elseif os(iOS)
       return 17
+    #elseif os(visionOS)
+      return 19
     #elseif os(tvOS)
       return 29
     #elseif os(watchOS)
